@@ -22,6 +22,7 @@ export async function dietRouter(app: FastifyInstance){
 
         return response.status(201).send();
     })
+
     app.get('/', {preHandler: [authorization]}, async (request, response) => {
         const user = request.user;
 
@@ -97,7 +98,7 @@ export async function dietRouter(app: FastifyInstance){
         return response.status(204).send();
     });
 
-  app.get('/metrics', {preHandler: [authorization]}, async (request, response) => {
+    app.get('/metrics', {preHandler: [authorization]}, async (request, response) => {
         const user = request.user;
 
         if (!user) {
